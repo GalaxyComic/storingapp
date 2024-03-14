@@ -20,7 +20,34 @@
             echo "<div class='msg'>" . $_GET['msg'] . "</div>";
         } ?>
 
-        <div style="height: 300px; background: #ededed; display: flex; justify-content: center; align-items: center; color: #666666;">(hier komen de storingsmeldingen)</div>
+        <div>
+
+            <?php
+
+            require_once '../../../config/conn.php';
+            $query = "SELECT * FROM meldingen";
+            $statment = $conn->prepare($query);
+            $statment->execute();
+            $meldingen = $statment->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+
+            <table>
+                <tr>
+                    <th>Atractie</th>
+                    <th>Type</th>
+                    <th>Melder</th>
+                    <th>Overige Info</th>
+                </tr>
+                <?php foreach($meldingen as $melding): ?>
+                <tr>
+                    <td><?php echo $melding['attractie'] ?></td>
+                    <td><?php echo $melding['type'] ?></td>
+                    <td><?php echo $melding['melder'] ?></td>
+                    <td><?php echo $melding['overige_info']  ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
     </div>
 
 </body>
