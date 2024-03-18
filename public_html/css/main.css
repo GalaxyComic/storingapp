@@ -357,3 +357,14 @@ label{
   }
 }
 
+tr:first-child {
+    background-color: #999999;
+}
+tr:nth-child(odd) {
+    background-color: #b3d4fc;
+}
+tr:first-child {
+    background-color: #999999;
+}
+
+

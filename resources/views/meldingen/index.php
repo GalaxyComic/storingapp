@@ -37,13 +37,22 @@
                     <th>Type</th>
                     <th>Melder</th>
                     <th>Overige Info</th>
+                    <th>Prioriteit</th>
                 </tr>
                 <?php foreach($meldingen as $melding): ?>
                 <tr>
                     <td><?php echo $melding['attractie'] ?></td>
                     <td><?php echo $melding['type'] ?></td>
                     <td><?php echo $melding['melder'] ?></td>
-                    <td><?php echo $melding['overige_info']  ?></td>
+                    <td><?php echo $melding['overige_info'] ?></td>
+                    <td><?php
+                        if($melding['prioriteit'] == 1) {
+                            echo "Ja";
+                            }
+                            else {
+                                echo "Nee";
+                            }
+                    ?></td>
                 </tr>
                 <?php endforeach; ?>
             </table>
