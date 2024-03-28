@@ -36,14 +36,17 @@
                     <th>Atractie</th>
                     <th>Type</th>
                     <th>Melder</th>
+                    <th>Capaciteit</th>
                     <th>Overige Info</th>
                     <th>Prioriteit</th>
+                    <th>Aanpassen</th>
                 </tr>
                 <?php foreach($meldingen as $melding): ?>
                 <tr>
                     <td><?php echo $melding['attractie'] ?></td>
                     <td><?php echo $melding['type'] ?></td>
                     <td><?php echo $melding['melder'] ?></td>
+                    <td><?php echo $melding['capaciteit'] ?></td>
                     <td><?php echo $melding['overige_info'] ?></td>
                     <td><?php
                         if($melding['prioriteit'] == 1) {
@@ -53,6 +56,11 @@
                                 echo "Nee";
                             }
                     ?></td>
+                    <td>
+                        <a href="edit.php?id=<?php echo $melding['id']; ?>">
+                            Aanpassen
+                        </a>
+                    </td>
                 </tr>
                 <?php endforeach; ?>
             </table>
